@@ -1,0 +1,68 @@
+import time
+
+print("Bienvenido a nuestra página de servicio al cliente de Piscinas Ferreira Quintas, crea tu cuenta para solicitar y ver otras piscinas.")
+
+# Función para crear cuenta
+def crear_cuenta():
+    while True:
+        user = input("Por favor ingrese su usuario: ").strip()
+        if user == "":
+            print("El usuario no puede estar vacío.")
+        else:
+            break
+
+    while True:
+        contra = input("Por favor ingrese su contraseña: ").strip()
+        if contra == "":
+            print("La contraseña no puede estar vacía.")
+        else:
+            break
+
+    while True:
+        contrac = input("Por favor ingrese su contraseña de nuevo para confirmar: ").strip()
+        if contrac == "":
+            print("La confirmación no puede estar vacía.")
+        elif contra != contrac:
+            print("Las contraseñas no son iguales.")
+            opcion = input("¿Desea volver a empezar el proceso de creación de cuenta? (s/n): ").strip().lower()
+            if opcion == "s":
+                return crear_cuenta()
+            else:
+                contra = input("Por favor ingrese su contraseña: ").strip()
+        else:
+            break
+
+    return user, contra
+
+# Crear cuenta
+user, contra = crear_cuenta()
+
+print("Procesando datos...")
+time.sleep(3)
+print("Cuenta creada con éxito.")
+time.sleep(2)
+
+# Inicio de sesión con límite de intentos
+print("Por favor inicie sesión a continuación.")
+intentos = 0
+max_intentos = 10
+
+while intentos < max_intentos:
+    userI = input("Ingrese su usuario: ").strip()
+    contraI = input("Ingrese su contraseña: ").strip()
+
+    if userI == "" or contraI == "":
+        print("El usuario y la contraseña no pueden estar vacíos.")
+    elif userI != user or contraI != contra:
+        intentos += 1
+        print(f"Usuario o contraseña incorrectos. Intento {intentos} de {max_intentos}.")
+    else:
+        break
+else:
+    print("Se han excedido los 10 intentos. La cuenta ha sido bloqueada temporalmente.")
+    exit()
+
+print("Iniciando sesión...")
+time.sleep(2)
+print("Sesión abierta correctamente.")
+print("Bienvenido a nuestra página de servicio al cliente de Piscinas Ferreira Quintas.")

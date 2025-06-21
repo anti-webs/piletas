@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Solicitud de Servicio - Piscinas Ferreira Quintas{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card bg-dark">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Solicitud de Servicio</h3>
+                </div>
+                <div class="card-body">
+                    {% if pool %}
+                    <div class="alert alert-info">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <strong>Piscina seleccionada:</strong> {{ pool.name }}
+                            </div>
+                            <a href="{{ url_for('service_request') }}" class="btn btn-sm btn-outline-dark ms-auto">Cambiar</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <form method="POST" action="{{ url_for('service_request') }}">
+                        {{ form.hidden_tag() }}
+                        {{ form.pool_id }}
+                        
+                        <div class="mb-3">
+                            {{ form.title.label(class="form-label") }}
+                            {{ form.title(class="form-control" + (" is-invalid" if form.title.errors else ""), placeholder="Ej: Mantenimiento de piscina, Reparación de filtro...") }}
+                            {% if form.title.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.title.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            {{ form.description.label(class="form-label") }}
+                            {{ form.description(class="form-control" + (" is-invalid" if form.description.errors else ""), rows=5, placeholder="Describa detalladamente lo que necesita...") }}
+                            {% if form.description.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.description.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                {{ form.email.label(class="form-label") }}
+                                {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="su.email@ejemplo.com") }}
+                                {% if form.email.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.email.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                {{ form.phone.label(class="form-label") }}
+                                {{ form.phone(class="form-control" + (" is-invalid" if form.phone.errors else ""), placeholder="+34 600 000 000") }}
+                                {% if form.phone.errors %}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.phone.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid">
+                            {{ form.submit(class="btn btn-primary") }}
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <p class="mb-0"><small>Nota: Nos pondremos en contacto con usted en un plazo máximo de 24 horas laborables.</small></p>
+                </div>
+            </div>
+            
+            {% if not pool %}
+            <div class="card bg-dark mt-4">
+                <div class="card-header">
+                    <h4 class="mb-0">Seleccionar una Piscina</h4>
+                </div>
+                <div class="card-body">
+                    <p>Si su solicitud está relacionada con uno de nuestros modelos, puede seleccionarlo a continuación:</p>
+                    
+                    <div class="row g-3">
+                        {% for pool in pools[:3] %}
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <img src="{{ pool.image_url }}" class="card-img-top" alt="{{ pool.name }}" style="height: 140px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ pool.name }}</h5>
+                                    <a href="{{ url_for('service_request', pool_id=pool.id) }}" class="btn btn-sm btn-primary select-pool-btn" data-pool-id="{{ pool.id }}" data-pool-name="{{ pool.name }}">
+                                        Seleccionar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="mt-3 text-center">
+                        <a href="{{ url_for('gallery') }}" class="btn btn-outline-primary">Ver Todas las Piscinas</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

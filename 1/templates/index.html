@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block title %}Piscinas Ferreira Quintas - Página Principal{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Piscinas Ferreira Quintas</h1>
+        <p class="lead">Especialistas en diseño, construcción y mantenimiento de piscinas de alta calidad</p>
+        <div class="mt-4">
+            <a href="{{ url_for('gallery') }}" class="btn btn-primary btn-lg me-2">Ver Piscinas</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">Contactar</a>
+        </div>
+    </div>
+</section>
+
+<!-- Welcome Section -->
+<section class="section bg-dark">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2>Bienvenido a Piscinas Ferreira Quintas</h2>
+                <p class="lead">Transformamos sus sueños acuáticos en realidad</p>
+                <p>En Piscinas Ferreira Quintas nos dedicamos a crear experiencias únicas para nuestros clientes. Con nuestra ámplia experiencia en la arquitectura, nuestros servicios estan especializado en el diseño, construcción y mantenimiento de piscinas de alta calidad.</p>
+                <p>Ya sea una piscina familiar, una piscina de lujo con borde infinito o una instalación deportiva de tamaño olímpico, trabajamos mano a mano con nuestros clientes para hacer realidad su visión.</p>
+                
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Nuestros Servicios</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 bg-dark">
+                    <div class="card-body text-center">
+                        <i class="fas fa-paint-brush fa-3x mb-3 text-primary"></i>
+                        <h4 class="card-title">Diseño Personalizado</h4>
+                        <p class="card-text">Creamos piscinas únicas adaptadas a su espacio y estilo. Nuestros diseñadores trabajan con las últimas tecnologías para visualizar su proyecto antes de comenzar y asegurarse de que el diseño se de su agrado.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 bg-dark">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tools fa-3x mb-3 text-primary"></i>
+                        <h4 class="card-title">Construcción</h4>
+                        <p class="card-text">Utilizamos materiales de la más alta calidad y las técnicas más avanzadas para construir piscinas duraderas, eficientes y hermosas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 bg-dark">
+                    <div class="card-body text-center">
+                        <i class="fas fa-wrench fa-3x mb-3 text-primary"></i>
+                        <h4 class="card-title">Mantenimiento/Reparación</h4>
+                        <p class="card-text">Ofrecemos servicios completos de mantenimiento para que su piscina vulva a quedar en perfectas condiciones y vuelva a tener un verano espléndido.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Pools Section -->
+<section class="section bg-dark">
+    <div class="container">
+        <h2 class="text-center mb-5">Piscinas Destacadas</h2>
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <div class="card pool-card">
+                    <div class="pool-card-img-container">
+                        <img src="/static/images/pools/pool_delux.jpg" width="355" height="200" alt="Piscina">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Piscina De Lujo Personalizada {{ pool }}</h5>
+                        <p class="card-text">Descubra nuestro modelo exclusivo con las mejores características del mercado respecto a lo que desee.</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">Solicita Tu Piscina Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card pool-card">
+                    <div class="pool-card-img-container">
+                        <img src="/static/images/pools/pool_delux_2.jpg" width="355" height="200" alt="Piscina">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Piscina De Lujo Personalizada {{ pool }}</h5>
+                        <p class="card-text">Descubra nuestro modelo exclusivo con las mejores características del mercado respecto a lo que desee.</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">Solicita Tu Piscina Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card pool-card">
+                    <div class="pool-card-img-container">
+                        <img src="/static/images/pools/pool_delux_3.jpeg" width="355" height="200" alt="Piscina">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Piscina De Lujo Personalizada {{ pool }}</h5>
+                        <p class="card-text">Descubra nuestro modelo exclusivo con las mejores características del mercado respecto a lo que desee.</p>
+                        <a href="{{ url_for('contact') }}" class="btn btn-primary">Solicita Tu Piscina Personalizada</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('gallery') }}" class="btn btn-outline-primary">Ver Todos los Modelos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Lo Que Dicen Nuestros Clientes</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card bg-dark h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"La piscina que construyeron en nuestra casa ha transformado completamente nuestros veranos. El equipo de Ferreira Quintas fue profesional, puntual y el resultado superó nuestras expectativas."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <div class="ms-3">
+                                <h6 class="mb-0">Ana Martínez</h6>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="card-text">"Contratamos a Ferreira Quintas para la construcción de nuestra piscina comunitaria y el diseño ha sido impecable. Siempre responden rápidamente a nuestras necesidades."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <div class="ms-3">
+                                <h6 class="mb-0">Carlos López</h6>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark h-100">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p class="card-text">"Acabamos de inaugurar nuestra piscina infinity y es un sueño hecho realidad. El diseño personalizado que nos propusieron se adaptó perfectamente a nuestro terreno con desnivel."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <div class="ms-3">
+                                <h6 class="mb-0">Miguel Sánchez</h6>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">¿Listo para tener la piscina de sus sueños?</h2>
+        <p class="lead mb-4">Contacte con nosotros hoy mismo para una consulta gratuita</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg">Contactar Ahora</a>
+    </div>
+</section>
+{% endblock %}

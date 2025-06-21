@@ -1,0 +1,104 @@
+Custom styles for Piscinas Ferreira Quintas */
+
+/* Hero section with background image */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1551966775-a4ddc8912533?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 5rem 0;
+}
+
+/* Company brand colors */
+:root {
+    --brand-primary: #005a87;
+    --brand-secondary: #00a4d6;
+    --brand-accent: #e6f7ff;
+}
+
+/* Pool card styling */
+.pool-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.pool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pool-card-img-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.pool-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Feature badges */
+.feature-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    background-color: var(--bs-info);
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+}
+
+/* Footer styling */
+.footer {
+    background-color: var(--bs-dark);
+    color: white;
+    padding: 2rem 0;
+}
+
+/* Service request card */
+.request-card {
+    border-left: 5px solid;
+}
+
+.request-card.pending {
+    border-left-color: var(--bs-warning);
+}
+
+.request-card.completed {
+    border-left-color: var(--bs-success);
+}
+
+.request-card.processing {
+    border-left-color: var(--bs-info);
+}
+
+/* Custom form styling */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--bs-dark);
+}
+
+/* Brand logo */
+.navbar-brand {
+    font-weight: bold;
+    color: var(--brand-secondary) !important;
+}
+
+/* Page sections */
+.section {
+    padding: 4rem 0;
+}
+
+/* Dashboard welcome banner */
+.welcome-banner {
+    background-color: var(--brand-primary);
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}

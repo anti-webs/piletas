@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Galería de Piscinas - Piscinas Ferreira Quintas{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1>Nuestras Piscinas</h1>
+        <p class="lead">Explore nuestra amplia selección de piscinas de alta calidad</p>
+    </div>
+
+    <div class="row g-4">
+        {% for pool in pools %}
+        <div class="col-lg-4 col-md-6">
+            <div class="card pool-card h-100">
+                <div class="pool-card-img-container">
+                    <img src="{{ pool.image_url }}" class="pool-card-img" alt="{{ pool.name }}">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ pool.name }}</h4>
+                    <p class="card-text">{{ pool.description }}</p>
+                    
+                    <div class="mb-3">
+                       
+                        
+                    </div>
+                    
+                    <div class="mb-3">
+                        <strong>Características:</strong><br>
+                        {% for feature in pool.features %}
+                            <span class="feature-badge">{{ feature }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('contact', pool_id=pool.id) }}" class="btn btn-primary">
+                            Solicitar Información
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="text-center mt-5">
+        <h3>¿No encuentra lo que busca?</h3>
+        <p>Ofrecemos diseños personalizados adaptados a sus necesidades específicas.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">Contacte con Nosotros</a>
+    </div>
+</div>
+{% endblock %}

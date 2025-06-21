@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Administrador - Usuarios - Piscinas Ferreira Quintas{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card bg-dark">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">Administración de Usuarios</h3>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-arrow-left"></i> Volver al Panel
+                    </a>
+                </div>
+                <div class="card-body">
+                    {% if users %}
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre Completo</th>
+                                        <th>Usuario</th>
+                                        <th>Email</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            <td>{{ user.id }}</td>
+                                            <td>{{ user.full_name }}</td>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>
+                                                <button class="btn btn-info btn-sm" title="Ver detalles">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">No hay usuarios registrados en el sistema.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-6">
+            <div class="card bg-dark">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Estadísticas de Usuarios</h4>
+                </div>
+                <div class="card-body">
+                    <p><strong>Total de Usuarios:</strong> {{ users|length }}</p>
+                    <p><strong>Último Usuario Registrado:</strong> 
+                    {% if users %}
+                        {{ users[-1].full_name }} ({{ users[-1].username }})
+                    {% else %}
+                        Ninguno
+                    {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card bg-dark">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">Acciones Administrativas</h4>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('api_users') }}" class="btn btn-outline-info" target="_blank">
+                            <i class="fas fa-code"></i> Ver API de Usuarios (JSON)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
